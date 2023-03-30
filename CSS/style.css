@@ -1,0 +1,322 @@
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 69;
+    background: rgba(0, 0, 0, 0.3) ;
+    
+}
+
+.logo
+{
+    font-size: 2em;
+    color: white;
+    user-select: none;
+}
+
+
+.navbar a
+{
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 1.1em;
+    color: white;
+    position: relative;
+    font-weight:500;
+}
+
+
+.navbar a::after
+{
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    border-radius: 5px;
+    left: 0;
+    bottom: -6px;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navbar a:hover::after
+{
+    transform: scaleX(1);
+}
+
+#login_btn
+{
+    width: 130px;
+    font-size: 1.1em;
+    height: 50px;
+    border: solid 2px white;
+    outline: none;
+    border-radius: 9px;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#login_btn:hover
+{
+    background-color: white;
+    color: black;
+
+}
+
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(/Images/nightsky.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper
+{
+    position: absolute;
+    width: 400px;
+    height: 440px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 20px 10px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform .5s ease, height .2s ease
+}
+
+.wrapper.active-popup
+{
+    transform: scale(1);
+}
+.wrapper.active
+{
+    height: 520px;
+}
+.wrapper .close_icon
+{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 2em;
+    color: white;
+    height: 45px;
+    width: 45px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.wrapper .form_box
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper .form_box.login
+{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper.active .form_box.login 
+{
+    transition: none;
+    transform: translateX(-400px);
+}
+.wrapper .form_box.register 
+{
+    position: absolute;
+    transform: translateX(400px);
+    transition: none;
+}
+
+.wrapper.active .form_box.register 
+{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.form_box h2
+{
+    font-size: 2em;
+    color: rgb(255, 255, 255);
+}
+
+.input_box
+{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid white;
+    margin: 30px 0px;
+}
+
+.input_box label
+{
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.input_box input:focus~label,
+.input_box input:valid~label
+{
+    top: -1px;
+}
+.input_box input
+{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 600;
+    padding: 0px 35px 0px 8px;
+}
+
+.input_box .icon
+{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: white;
+    line-height: 57px;
+}
+
+.remember_forgot
+{
+    font-size: .9em;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    margin: -15px 0px 15px;
+    align-items: center;
+}
+
+.remember_forgot label input
+{
+    margin-right: 4px;
+}
+
+.remember_forgot a
+{
+    text-decoration: none;
+    color: white;
+}
+
+.remember_forgot a:hover
+{
+    text-decoration: underline;
+}
+
+.btn
+{
+    width: 100%;
+    border-radius: 6px;
+    height: 30px;
+    border: 2px solid white;
+    outline: none;
+    background-color: black;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+#btn:hover
+{
+    background-color: white;
+    color: black;
+}
+
+.login_register
+{
+
+    font-size: .9em;
+    color: white;
+    text-align: center;
+    margin: 40px 0px 10px;
+}
+
+.login_register p a
+{
+    text-decoration: none;
+    color: white;
+    font-weight: 550;
+}
+
+.login_register p a:hover
+{
+    text-decoration: underline;
+}
+
+
+.home
+{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    transform: scale(1);
+    transition: transform .5s ease-in-out;
+    padding: 0px 100px 0px 100px;
+}
+
+.home h1
+{
+    font-size: 69px
+}
+
+.something
+{
+    font-size: 18px;
+}
+
+.home.active
+{
+    transform: scale(0);
+}
